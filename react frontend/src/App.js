@@ -1,19 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import Signup from "./Components/Signup";
+import Login from "./Components/Login";
+import Feed from "./Components/Feed";
+import CreatePost from "./Components/CreatePost";
+import Profile from "./Components/Profile";
+import Search from "./Components/Search";
+import Notification from "./Components/Notification";
+import Navbar from "./Components/Navbar";
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:8080/api/test")
-      .then((res) => res.text())
-      .then((data) => setMessage(data))
-      .catch((err) => console.error(err));
-  }, []);
-
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Social Media App</h1>
-      <h2>{message}</h2>
+    <div>
+      <Navbar />
+      <Signup />
+      <Login />
+      <CreatePost />
+      <Feed />
+      <Profile />
+      <Search />
+      <Notification />
     </div>
   );
 }
