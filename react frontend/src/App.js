@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import Signup from "./Components/Signup";
 import Login from "./Components/Login";
 import Feed from "./Components/Feed";
@@ -10,16 +11,18 @@ import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <Signup />
-      <Login />
-      <CreatePost />
-      <Feed />
-      <Profile />
-      <Search />
-      <Notification />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navbar />
+        <Signup />
+        <Login />
+        <CreatePost />
+        <Feed />
+        <Profile />
+        <Search />
+        <Notification />
+      </div>
+    </BrowserRouter>
   );
 }
 
