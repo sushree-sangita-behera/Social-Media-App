@@ -9,6 +9,19 @@ function Feed() {
     setPosts(data);
   };
 
+  const deletePost = async (id) => {
+    const response = await fetch(`http://localhost:8080/api/posts/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      alert("Post deleted successfully");
+      fetchPosts();
+    } else {
+      alert("Failed to delete post");
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -24,6 +37,7 @@ function Feed() {
           <div key={post.id}>
             <h4>{post.username}</h4>
             <p>{post.content}</p>
+            <button onClick={() => deletePost(post.id)}>Delete</button>
           </div>
         ))
       )}
