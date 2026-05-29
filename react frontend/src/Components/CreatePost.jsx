@@ -1,64 +1,49 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "../Styles/CreatePost.css";
 
 function CreatePost() {
+  const [content, setContent] = useState("");
 
-const [post, setPost] = useState("");
+  const handleCreatePost = async (e) => {
+    e.preventDefault();
 
-const [posts, setPosts] = useState([]);
+    const post = {
+      username: "test3",
+      content: content,
+    };
 
-const addPost = () => {
+    const response = await fetch("http://localhost:8080/api/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(post),
+    });
 
-if(post.trim() !== ""){
+    if (response.ok) {
+      alert("Post created successfully");
+      setContent("");
+    } else {
+      alert("Failed to create post");
+    }
+  };
 
-setPosts([...posts, post]);
+  return (
+    <div className="create-post-container">
+      <h2>Create Post</h2>
 
-setPost("");
+      <form onSubmit={handleCreatePost}>
+        <textarea
+          placeholder="What's on your mind?"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          required
+        />
 
-}
-
-};
-
-return (
-
-<div className="create-post">
-
-<h2>Create Post</h2>
-
-<textarea
-placeholder="What's on your mind?"
-value={post}
-onChange={(e)=>setPost(e.target.value)}
-></textarea>
-
-<br/><br/>
-
-<button onClick={addPost}>
-Post
-</button>
-
-<div>
-
-{posts.map((item,index)=>(
-
-<div key={index}>
-
-<h3>Sushree</h3>
-
-<p>{item}</p>
-
-<hr/>
-
-</div>
-
-))}
-
-</div>
-
-</div>
-
-);
-
+        <button type="submit">Post</button>
+      </form>
+    </div>
+  );
 }
 
 export default CreatePost;
