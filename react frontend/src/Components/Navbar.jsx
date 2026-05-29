@@ -1,29 +1,21 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import "../Styles/Navbar.css";
-import { useNavigate } from "react-router-dom";
 
 function Navbar() {
-
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    navigate("/");
-  };
-
   return (
     <nav className="navbar">
+      <h2>Social Media App</h2>
 
-      <h2>Social App</h2>
-
-      <ul>
-        <li>Home</li>
-        <li>Profile</li>
-
-        <li onClick={handleLogout}>
-          Logout
-        </li>
-      </ul>
-
+      <div className="nav-links">
+        <Link to="/">Feed</Link>
+        <Link to="/create">Create Post</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/search">Search</Link>
+        <Link to="/notifications">Notifications</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/signup">Signup</Link>
+      </div>
     </nav>
   );
 }

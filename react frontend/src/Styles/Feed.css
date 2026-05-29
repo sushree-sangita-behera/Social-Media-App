@@ -1,0 +1,47 @@
+.feed-container {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+.feed-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.post-card h4 {
+  margin: 0 0 10px;
+  color: #1a73e8;
+}
+
+.post-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.post-card button {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-card button:hover {
+  background: #c62828;
+}
+
+.empty-feed {
+  text-align: center;
+  color: #666;
+}

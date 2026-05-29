@@ -1,0 +1,19 @@
+.notification-container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.notification-container h2 {
+  text-align: center;
+}
+
+.notification-card {
+  background: white;
+  border: 1px solid #ddd;
+  border-left: 5px solid #1a73e8;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}

@@ -1,30 +1,45 @@
+import React, { useEffect, useState } from "react";
 import "../Styles/Profile.css";
 
 function Profile() {
+  const [posts, setPosts] = useState([]);
 
-return (
+  const username = "test3";
 
-<div className="profile">
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("http://localhost:8080/api/posts");
+      const data = await response.json();
+      const userPosts = data.filter((post) => post.username === username);
+      setPosts(userPosts);
+    };
 
-<img
-src="https://via.placeholder.com/100"
-alt="Profile"
-/>
+    fetchPosts();
+  }, []);
 
-<h2>Sushree</h2>
+  return (
+    <div className="profile-container">
+      <div className="profile-header">
+        <div className="profile-avatar">T</div>
+        <div>
+          <h2>{username}</h2>
+          <p>Social Media App User</p>
+        </div>
+      </div>
 
-<p>Bio: Student & Developer</p>
+      <h3>Your Posts</h3>
 
-<h4>Posts: 10</h4>
-
-<h4>Followers: 500</h4>
-
-<h4>Following: 200</h4>
-
-</div>
-
-);
-
+      {posts.length === 0 ? (
+        <p className="empty-profile">No posts created yet.</p>
+      ) : (
+        posts.map((post) => (
+          <div className="profile-post" key={post.id}>
+            <p>{post.content}</p>
+          </div>
+        ))
+      )}
+    </div>
+  );
 }
 
 export default Profile;

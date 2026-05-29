@@ -1,46 +1,51 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import "../Styles/Search.css";
 
 function Search() {
+  const [query, setQuery] = useState("");
+  const [posts, setPosts] = useState([]);
 
-const users = [
-"Sushree",
-"Riya",
-"Ankit",
-"Rahul",
-"Priya"
-];
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await fetch("http://localhost:8080/api/posts");
+      const data = await response.json();
+      setPosts(data);
+    };
 
-const [search, setSearch] = useState("");
+    fetchPosts();
+  }, []);
 
-const filteredUsers = users.filter(user =>
-user.toLowerCase().includes(search.toLowerCase())
-);
+  const filteredPosts = posts.filter(
+    (post) =>
+      post.username.toLowerCase().includes(query.toLowerCase()) ||
+      post.content.toLowerCase().includes(query.toLowerCase())
+  );
 
-return (
+  return (
+    <div className="search-container">
+      <h2>Search</h2>
 
-<div>
+      <input
+        type="text"
+        placeholder="Search posts or users"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
 
-<h2>Search Users</h2>
-
-<input
-type="text"
-placeholder="Search user..."
-value={search}
-onChange={(e)=>setSearch(e.target.value)}
-/>
-
-<ul>
-
-{filteredUsers.map((user,index)=>(
-<li key={index}>{user}</li>
-))}
-
-</ul>
-
-</div>
-
-);
-
+      <div>
+        {filteredPosts.length === 0 ? (
+          <p>No results found</p>
+        ) : (
+          filteredPosts.map((post) => (
+            <div className="search-result" key={post.id}>
+              <h4>{post.username}</h4>
+              <p>{post.content}</p>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
 }
 
 export default Search;

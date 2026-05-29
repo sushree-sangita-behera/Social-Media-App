@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../Styles/Feed.css";
 
 function Feed() {
   const [posts, setPosts] = useState([]);
@@ -27,14 +28,14 @@ function Feed() {
   }, []);
 
   return (
-    <div>
+    <div className="feed-container">
       <h2>Feed</h2>
 
       {posts.length === 0 ? (
-        <p>No posts yet</p>
+        <p className="empty-feed">No posts yet</p>
       ) : (
         posts.map((post) => (
-          <div key={post.id}>
+          <div className="post-card" key={post.id}>
             <h4>{post.username}</h4>
             <p>{post.content}</p>
             <button onClick={() => deletePost(post.id)}>Delete</button>
