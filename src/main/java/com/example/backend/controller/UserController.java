@@ -24,7 +24,7 @@ public class UserController {
 
     @PostMapping("/login")
     public User login(@RequestBody User user) {
-        return userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        return userRepository.findFirstByEmailAndPassword(user.getEmail(), user.getPassword());
     }
 
     @GetMapping

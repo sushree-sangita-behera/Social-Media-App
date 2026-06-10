@@ -1,47 +1,61 @@
 .feed-container {
-  max-width: 650px;
-  margin: 30px auto;
-  padding: 0 16px;
+  max-width: 860px;
+  margin: 48px auto;
+  padding: 0 20px;
 }
 
 .feed-container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  font-size: 38px;
+  color: #0f172a;
+  margin-bottom: 30px;
 }
 
 .post-card {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 18px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #dbe3ef;
+  border-radius: 18px;
+  padding: 26px;
+  margin-bottom: 22px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.post-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 100%;
+  background: linear-gradient(180deg, #2563eb, #06b6d4);
 }
 
 .post-card h4 {
-  margin: 0 0 10px;
-  color: #1a73e8;
+  margin: 0 0 12px;
+  color: #2563eb;
+  font-size: 20px;
 }
 
 .post-card p {
-  font-size: 16px;
-  line-height: 1.5;
+  color: #1e293b;
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 .post-card button {
-  background: #e53935;
+  background: #ef4444;
   color: white;
   border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
+  padding: 10px 18px;
+  border-radius: 999px;
   cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 10px 22px rgba(239, 68, 68, 0.22);
 }
 
 .post-card button:hover {
-  background: #c62828;
-}
-
-.empty-feed {
-  text-align: center;
-  color: #666;
+  background: #dc2626;
+  transform: translateY(-1px);
 }

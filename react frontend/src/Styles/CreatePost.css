@@ -1,44 +1,61 @@
 .create-post-container {
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 24px;
+  max-width: 760px;
+  margin: 64px auto;
+  padding: 42px;
   background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #dbe3ef;
+  border-radius: 26px;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.16);
+}
+
+.create-post-container::before {
+  content: "Share something with your network";
+  display: block;
+  text-align: center;
+  color: #2563eb;
+  font-weight: 800;
+  margin-bottom: 8px;
 }
 
 .create-post-container h2 {
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 20px;
+  font-size: 38px;
+  color: #0f172a;
+  margin: 0 0 30px;
 }
 
 .create-post-container form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .create-post-container textarea {
-  min-height: 130px;
-  padding: 14px;
-  font-size: 16px;
+  min-height: 190px;
+  padding: 20px;
+  font-size: 18px;
   resize: vertical;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+  outline: none;
+  background: #f8fafc;
+  line-height: 1.6;
+}
+
+.create-post-container textarea:focus {
+  border-color: #2563eb;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.14);
 }
 
 .create-post-container button {
-  background: #1a73e8;
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
   color: white;
   border: none;
-  padding: 10px 16px;
-  border-radius: 5px;
+  padding: 16px 20px;
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 16px;
-}
-
-.create-post-container button:hover {
-  background: #1558b0;
+  font-size: 18px;
+  font-weight: 900;
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.28);
 }

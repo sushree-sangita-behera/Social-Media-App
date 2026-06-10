@@ -1,19 +1,33 @@
 .notification-container {
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 0 16px;
+  max-width: 800px;
+  margin: 52px auto;
+  padding: 0 22px;
 }
 
 .notification-container h2 {
   text-align: center;
+  font-size: 40px;
+  color: #0f172a;
+  margin-bottom: 28px;
 }
 
 .notification-card {
   background: white;
-  border: 1px solid #ddd;
-  border-left: 5px solid #1a73e8;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #dbe3ef;
+  border-left: 8px solid #2563eb;
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.09);
+  font-size: 18px;
+  color: #1e293b;
+}
+
+.notification-card::before {
+  content: "Notification";
+  display: block;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 6px;
 }

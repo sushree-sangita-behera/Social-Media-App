@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -24,7 +27,9 @@ function Login() {
     const data = await response.json();
 
     if (data && data.id) {
+      localStorage.setItem("loggedInUser", JSON.stringify(data));
       alert("Login successful");
+      navigate("/");
     } else {
       alert("Invalid email or password");
     }
@@ -37,7 +42,7 @@ function Login() {
       <form onSubmit={handleLogin}>
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value.trim())}
           required
@@ -45,7 +50,7 @@ function Login() {
 
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value.trim())}
           required

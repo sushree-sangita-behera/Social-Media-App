@@ -1,14 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Styles/CreatePost.css";
 
 function CreatePost() {
   const [content, setContent] = useState("");
+  const navigate = useNavigate();
 
   const handleCreatePost = async (e) => {
     e.preventDefault();
 
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (!loggedInUser) {
+      alert("Please login before creating a post");
+      navigate("/login");
+      return;
+    }
+
     const post = {
-      username: "test3",
+      username: loggedInUser.username,
       content: content,
     };
 
@@ -23,6 +33,7 @@ function CreatePost() {
     if (response.ok) {
       alert("Post created successfully");
       setContent("");
+      navigate("/");
     } else {
       alert("Failed to create post");
     }
