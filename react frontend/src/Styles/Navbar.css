@@ -1,5 +1,5 @@
 .navbar {
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(15, 23, 42, 0.94);
   color: white;
   padding: 18px 34px;
   display: flex;
@@ -9,14 +9,12 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(14px);
 }
 
 .navbar h2 {
   margin: 0;
   font-size: 27px;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-weight: 900;
 }
 
 .navbar h2::before {
@@ -50,6 +48,27 @@
   background: linear-gradient(90deg, #2563eb, #06b6d4);
   color: white;
   box-shadow: 0 8px 18px rgba(37, 99, 235, 0.28);
+}
+
+.nav-user {
+  color: #bae6fd;
+  font-weight: 800;
+  padding: 10px 12px;
+}
+
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(239, 68, 68, 0.25);
+}
+
+.logout-btn:hover {
+  background: #dc2626;
 }
 
 @media (max-width: 850px) {
